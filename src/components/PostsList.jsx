@@ -4,7 +4,7 @@ import Post from "./Post";
 import styles from "./PostLists.module.css";
 import { useState } from "react";
 
-const PostsList = () => {
+const PostsList = ({ isPosting, onStopPosting }) => {
   const [enteredBody, setEnteredBody] = useState("");
   const [author, setAuthor] = useState("");
   const changeBodyHandler = (e) => {
@@ -14,16 +14,32 @@ const PostsList = () => {
     setAuthor(e.target.value);
   };
 
+  /* let modalContent;
+   if (modalIsVisible) {
+     modalContent = (
+       <Modal onClose={hideModalVisible}>
+         <NewPost
+           enteredBody={enteredBody}
+           setEnteredBody={changeBodyHandler}
+           setAuthor={setAuthorName}
+           author={author}
+         />
+       </Modal>
+     );
+   } */
   return (
     <>
-      <Modal>
-        <NewPost
-          enteredBody={enteredBody}
-          setEnteredBody={changeBodyHandler}
-          setAuthor={setAuthorName}
-          author={author}
-        />
-      </Modal>
+      {/* {modalContent} */}
+      {isPosting && (
+        <Modal onClose={onStopPosting}>
+          <NewPost
+            enteredBody={enteredBody}
+            setEnteredBody={changeBodyHandler}
+            setAuthor={setAuthorName}
+            author={author}
+          />
+        </Modal>
+      )}
       <ul className={styles.posts}>
         <li>
           <Post author={author} body={enteredBody} />
