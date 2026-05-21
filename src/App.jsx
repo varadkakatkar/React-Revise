@@ -4,7 +4,7 @@ import PostsList from "./components/PostsList";
 import { useState } from "react";
 
 function App() {
-  const [modalIsVisible, setIsModalVisible] = useState(true);
+  const [modalIsVisible, setIsModalVisible] = useState(false);
   const hideModalVisible = () => {
     setIsModalVisible(!modalIsVisible);
   };

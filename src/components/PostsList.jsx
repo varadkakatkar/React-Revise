@@ -37,6 +37,7 @@ const PostsList = ({ isPosting, onStopPosting }) => {
             setEnteredBody={changeBodyHandler}
             setAuthor={setAuthorName}
             author={author}
+            onCancel={onStopPosting}
           />
         </Modal>
       )}
@@ -45,7 +46,7 @@ const PostsList = ({ isPosting, onStopPosting }) => {
           <Post author={author} body={enteredBody} />
         </li>
         <li>
-          <Post author={author} body={enteredBody} />
+          <Post author={"Manual"} body={"Checkout the full course"} />
         </li>
       </ul>
     </>

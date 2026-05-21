@@ -1,7 +1,7 @@
 import classes from "./NewPost.module.css";
 
 function NewPost(props) {
-  const { enteredBody, setEnteredBody, author, setAuthor } = props;
+  const { enteredBody, setEnteredBody, author, setAuthor, onCancel } = props;
 
   return (
     <form className={classes.form}>
@@ -26,6 +26,12 @@ function NewPost(props) {
           value={author}
           onChange={setAuthor}
         />
+      </p>
+      <p className={classes.actions}>
+        <button type="button" onClick={onCancel}>
+          Cancel
+        </button>
+        <button>Submit</button>
       </p>
     </form>
   );
